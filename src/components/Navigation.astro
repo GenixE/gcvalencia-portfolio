@@ -1,0 +1,426 @@
+---
+// Navigation component with navigation
+---
+
+<!-- Desktop: Floating Navigation Pills (Right Side) -->
+<nav class="fixed right-6 top-1/2 transform -translate-y-1/2 z-50 hidden md:block">
+  <div class="bg-white/90 dark:bg-gray-900/90 backdrop-blur-md rounded-2xl border border-gray-200/20 dark:border-gray-700/20 p-2 shadow-lg">
+    <ul class="flex flex-col space-y-2">
+      <li>
+        <a href="#about" class="nav-pill flex items-center justify-center w-12 h-12 rounded-xl text-gray-600 dark:text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 transition-all duration-300 group relative">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+          </svg>
+          <span class="nav-tooltip absolute right-16 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-3 py-1 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">About</span>
+        </a>
+      </li>
+      <li>
+        <a href="#tech" class="nav-pill flex items-center justify-center w-12 h-12 rounded-xl text-gray-600 dark:text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 transition-all duration-300 group relative">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+          </svg>
+          <span class="nav-tooltip absolute right-16 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-3 py-1 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">Tech Stack</span>
+        </a>
+      </li>
+      <li>
+        <a href="#projects" class="nav-pill flex items-center justify-center w-12 h-12 rounded-xl text-gray-600 dark:text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-purple-500 hover:to-blue-500 transition-all duration-300 group relative">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+          </svg>
+          <span class="nav-tooltip absolute right-16 bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 px-3 py-1 rounded-lg text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">Projects</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Mobile: Bottom Tab Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 z-40 md:hidden">
+  <div class="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t border-gray-200/30 dark:border-gray-700/30 shadow-lg">
+    <ul class="flex justify-around">
+      <li class="flex-1">
+        <a href="#about" class="nav-tab flex flex-col items-center py-3 px-2 text-gray-600 dark:text-gray-300 transition-all duration-200 relative min-h-[64px] justify-center active:scale-95">
+          <svg class="w-6 h-6 mb-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+          </svg>
+          <span class="text-xs font-medium">About</span>
+        </a>
+      </li>
+      <li class="flex-1">
+        <a href="#tech" class="nav-tab flex flex-col items-center py-3 px-2 text-gray-600 dark:text-gray-300 transition-all duration-200 relative min-h-[64px] justify-center active:scale-95">
+          <svg class="w-6 h-6 mb-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+          </svg>
+          <span class="text-xs font-medium">Tech</span>
+        </a>
+      </li>
+      <li class="flex-1">
+        <a href="#projects" class="nav-tab flex flex-col items-center py-3 px-2 text-gray-600 dark:text-gray-300 transition-all duration-200 relative min-h-[64px] justify-center active:scale-95">
+          <svg class="w-6 h-6 mb-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+          </svg>
+          <span class="text-xs font-medium">Projects</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Theme Toggle FAB -->
+<button id="theme-toggle" class="fixed right-6 bottom-20 z-50 w-14 h-14 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95 transition-all duration-200 flex items-center justify-center md:bottom-32">
+  <svg class="w-6 h-6 hidden dark:block transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+    <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+  </svg>
+  <svg class="w-6 h-6 block dark:hidden transition-transform duration-200" fill="currentColor" viewBox="0 0 20 20">
+    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+  </svg>
+</button>
+
+<style>
+  /* Desktop Navigation Pills */
+  .nav-pill {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    transform-origin: center;
+  }
+
+  .nav-pill:active {
+    transform: scale(0.95);
+  }
+
+  .nav-pill.active {
+    background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+    color: white;
+    transform: translateX(-4px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+  }
+
+  .nav-pill.active:hover {
+    background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+  }
+
+  /* Mobile Navigation */
+  .nav-tab {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 64px;
+    text-decoration: none;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+
+  /* Improve touch target */
+  .nav-tab::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    border-radius: 12px;
+    background: transparent;
+    transition: all 0.2s ease;
+  }
+
+  .nav-tab:active::before {
+    background: rgba(139, 92, 246, 0.1);
+  }
+
+  /* Active state for mobile tabs */
+  .nav-tab.active {
+    color: #8b5cf6;
+    transform: translateY(-2px);
+  }
+
+  :global(.dark) .nav-tab.active {
+    color: #a78bfa;
+  }
+
+  .nav-tab.active svg {
+    color: #8b5cf6;
+    transform: scale(1.1);
+  }
+
+  :global(.dark) .nav-tab.active svg {
+    color: #a78bfa;
+  }
+
+  .nav-tab.active span {
+    color: #8b5cf6;
+    font-weight: 600;
+  }
+
+  :global(.dark) .nav-tab.active span {
+    color: #a78bfa;
+  }
+
+  /* Active indicator */
+  .nav-tab.active::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background: #8b5cf6;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(139, 92, 246, 0.6);
+  }
+
+  :global(.dark) .nav-tab.active::after {
+    background: #a78bfa;
+    box-shadow: 0 0 8px rgba(167, 139, 250, 0.6);
+  }
+
+  /* Theme toggle improvements */
+  #theme-toggle {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  #theme-toggle:hover {
+    background: linear-gradient(135deg, #9333ea 0%, #2563eb 100%);
+  }
+
+  /* Tooltip improvements */
+  .nav-tooltip {
+    pointer-events: none;
+    z-index: 60;
+    white-space: nowrap;
+    font-weight: 500;
+    transform: translateX(4px);
+    transition: all 0.2s ease;
+  }
+
+  /* Ensure proper backdrop blur support */
+  @supports (backdrop-filter: blur(12px)) {
+    nav > div {
+      backdrop-filter: blur(12px);
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    /* Add safe area inset for devices with bottom safe areas */
+    .nav-tab {
+      padding-bottom: max(12px, env(safe-area-inset-bottom, 12px));
+    }
+
+    /* Ensure bottom navigation doesn't interfere with content */
+    :global(body) {
+      padding-bottom: 80px;
+    }
+  }
+</style>
+
+<script>
+  // Enhanced navigation with proper debouncing and touch support
+  (function() {
+    let isInitialized = false;
+
+    // Prevent multiple initializations
+    if (isInitialized) return;
+    isInitialized = true;
+
+    // Throttle function for scroll events
+    function throttle(func, limit) {
+      let inThrottle;
+      return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+          func.apply(context, args);
+          inThrottle = true;
+          setTimeout(() => inThrottle = false, limit);
+        }
+      }
+    }
+
+    // Debounce function for resize events
+    function debounce(func, wait) {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    }
+
+    function initNavigation() {
+      const desktopLinks = document.querySelectorAll('.nav-pill');
+      const mobileLinks = document.querySelectorAll('.nav-tab');
+      const allLinks = [...desktopLinks, ...mobileLinks];
+
+      let isScrolling = false;
+      let currentSection = '#about';
+
+      // Update active states
+      function updateActiveStates(activeHref) {
+        if (currentSection === activeHref) return;
+        currentSection = activeHref;
+
+        allLinks.forEach(link => {
+          const href = link.getAttribute('href');
+          if (href === activeHref) {
+            link.classList.add('active');
+            link.setAttribute('aria-current', 'page');
+          } else {
+            link.classList.remove('active');
+            link.removeAttribute('aria-current');
+          }
+        });
+      }
+
+      // Improved section detection
+      function getCurrentSection() {
+        const sections = ['#about', '#tech', '#projects'];
+        const scrollPosition = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+
+        // Handle edge cases
+        if (scrollPosition < 100) return '#about';
+        if (scrollPosition + windowHeight >= documentHeight - 50) {
+          return sections[sections.length - 1];
+        }
+
+        let current = '#about';
+        let minDistance = Infinity;
+
+        sections.forEach(sectionId => {
+          const section = document.querySelector(sectionId);
+          if (section) {
+            const rect = section.getBoundingClientRect();
+            const sectionTop = rect.top + scrollPosition;
+            const distance = Math.abs(sectionTop - scrollPosition - 100);
+
+            if (distance < minDistance && rect.top <= 150) {
+              minDistance = distance;
+              current = sectionId;
+            }
+          }
+        });
+
+        return current;
+      }
+
+      // Handle navigation clicks
+      function handleNavClick(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const link = e.currentTarget;
+        const href = link.getAttribute('href');
+        const target = document.querySelector(href);
+
+        if (!target) return;
+
+        isScrolling = true;
+
+        // Add visual feedback
+        link.style.transform = link.classList.contains('nav-pill')
+          ? 'translateX(-4px) scale(0.95)'
+          : 'translateY(-2px) scale(0.95)';
+
+        setTimeout(() => {
+          link.style.transform = '';
+        }, 150);
+
+        // Smooth scroll with offset
+        const yOffset = window.innerWidth >= 768 ? -80 : -100;
+        const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+        window.scrollTo({
+          top: y,
+          behavior: 'smooth'
+        });
+
+        // Update active state immediately for better UX
+        updateActiveStates(href);
+
+        // Allow scroll detection after animation
+        setTimeout(() => {
+          isScrolling = false;
+        }, 1000);
+      }
+
+      // Scroll handler with throttling
+      const handleScroll = throttle(() => {
+        if (isScrolling) return;
+
+        const current = getCurrentSection();
+        updateActiveStates(current);
+      }, 100);
+
+      // Touch feedback for mobile
+      function addTouchFeedback(link) {
+        link.addEventListener('touchstart', () => {
+          link.style.transform = 'scale(0.95)';
+        }, { passive: true });
+
+        link.addEventListener('touchend', () => {
+          setTimeout(() => {
+            link.style.transform = '';
+          }, 150);
+        }, { passive: true });
+
+        link.addEventListener('touchcancel', () => {
+          link.style.transform = '';
+        }, { passive: true });
+      }
+
+      // Initialize event listeners
+      allLinks.forEach(link => {
+        link.addEventListener('click', handleNavClick);
+        if ('ontouchstart' in window) {
+          addTouchFeedback(link);
+        }
+      });
+
+      // Scroll listener
+      window.addEventListener('scroll', handleScroll, { passive: true });
+
+      // Handle resize
+      const handleResize = debounce(() => {
+        if (!isScrolling) {
+          const current = getCurrentSection();
+          updateActiveStates(current);
+        }
+      }, 250);
+
+      window.addEventListener('resize', handleResize);
+
+      // Set initial state
+      setTimeout(() => {
+        const initial = getCurrentSection();
+        updateActiveStates(initial);
+      }, 100);
+
+      // Cleanup function
+      return () => {
+        allLinks.forEach(link => {
+          link.removeEventListener('click', handleNavClick);
+        });
+        window.removeEventListener('scroll', handleScroll);
+        window.removeEventListener('resize', handleResize);
+      };
+    }
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initNavigation);
+    } else {
+      initNavigation();
+    }
+  })();
+</script>

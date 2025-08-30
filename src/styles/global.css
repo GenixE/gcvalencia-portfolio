@@ -1,0 +1,41 @@
+@import "tailwindcss";
+@config "../../tailwind.config.js";
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px; /* Account for fixed navigation */
+}
+
+/* Improve scrolling on mobile devices */
+@media (max-width: 768px) {
+    html {
+        scroll-padding-top: 120px; /* Extra padding for mobile bottom nav */
+    }
+
+    body {
+        padding-bottom: 80px; /* Space for bottom navigation */
+        /* Prevent horizontal scroll issues */
+        overflow-x: hidden;
+    }
+}
+
+/* Enhance touch interactions on mobile */
+@media (pointer: coarse) {
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
+/* Improve focus states for accessibility */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid #8b5cf6;
+    outline-offset: 2px;
+}
+
+/* Smooth transitions for theme switching */
+* {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+}
