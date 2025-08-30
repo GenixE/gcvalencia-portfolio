@@ -1,5 +1,8 @@
 ---
 // Footer component
+import astroLogo from '../assets/astro_light.svg';
+import tailwindLogo from '../assets/tailwindcss.svg';
+import cloudflareLogo from '../assets/cloudflare.svg';
 ---
 
 <footer class="bg-gray-900 dark:bg-black text-white py-12">
@@ -34,19 +37,19 @@
         <div class="flex justify-center items-center space-x-8 flex-wrap gap-4">
           <div class="flex items-center space-x-2 text-gray-400">
             <span class="text-sm">Built with</span>
-            <img src="/svg/astro_light.svg" alt="Astro" class="w-5 h-5" />
+            <img src={astroLogo.src} alt="Astro" class="w-5 h-5" width="20" height="20" loading="lazy" />
             <span class="text-sm font-medium">Astro</span>
           </div>
 
           <div class="flex items-center space-x-2 text-gray-400">
             <span class="text-sm">Styled with</span>
-            <img src="/svg/tailwindcss.svg" alt="TailwindCSS" class="w-5 h-5" />
+            <img src={tailwindLogo.src} alt="TailwindCSS" class="w-5 h-5" width="20" height="20" loading="lazy" />
             <span class="text-sm font-medium">TailwindCSS</span>
           </div>
 
           <div class="flex items-center space-x-2 text-gray-400">
             <span class="text-sm">Deployed on</span>
-            <img src="/svg/cloudflare.svg" alt="Cloudflare" class="w-5 h-5" />
+            <img src={cloudflareLogo.src} alt="Cloudflare" class="w-5 h-5" width="20" height="20" loading="lazy" />
             <span class="text-sm font-medium">Cloudflare</span>
           </div>
         </div>

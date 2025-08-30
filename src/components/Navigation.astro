@@ -394,4 +394,25 @@ const navItems = [
       initNavigation();
     }
   })();
+
+  // Offset in pixels (adjust as needed)
+  const SCROLL_OFFSET = 0;
+  // Wait for DOM
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href').slice(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+          e.preventDefault();
+          const rect = target.getBoundingClientRect();
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          window.scrollTo({
+            top: rect.top + scrollTop - SCROLL_OFFSET,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  });
 </script>
