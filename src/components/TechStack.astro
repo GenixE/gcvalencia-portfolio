@@ -1,5 +1,6 @@
 ---
-// Tech Stack component with continuous scrolling carousel organized by categories
+
+// Tech Stack component with multi-row continuous scrolling carousel
 const techStackGroups = {
   "Frontend Frameworks": ["react", "astro"],
   "Languages": ["typeScript", "javaScript", "PHP", "HTML5", "CSS3"],
@@ -9,18 +10,24 @@ const techStackGroups = {
   "Tools": ["git"]
 };
 
-// Flatten the grouped technologies for the carousel while maintaining logical order
-const technologies = [
-  ...techStackGroups["Frontend Frameworks"],
-  ...techStackGroups["Languages"],
-  ...techStackGroups["Styling & UI"],
-  ...techStackGroups["Backend & Runtime"],
-  ...techStackGroups["Database"],
-  ...techStackGroups["Tools"]
-];
+// Create multiple rows for better visibility - each row has different technologies
+const createCarouselRows = () => {
+  // Row 1: Core Frontend Stack - Modern web development foundation
+  const row1 = ["react", "typeScript", "astro", "tailwindcss", "HTML5", "CSS3"];
+
+  // Row 2: Backend & Database - Server-side technologies
+  const row2 = ["nodejs", "laravel", "PHP", "mysql"];
+
+  // Row 3: Tools & UI Libraries - Development workflow and styling
+  const row3 = ["git", "javaScript", "daisyUI", "bootstrap"];
+
+  return [row1, row2, row3];
+};
+
+const carouselRows = createCarouselRows();
 
 // Mapping for correct technology name formatting
-const techNameMap = {
+const techNameMap: Record<string, string> = {
   "daisyUI": "DaisyUI",
   "PHP": "PHP",
   "typeScript": "TypeScript",
@@ -33,7 +40,7 @@ const techNameMap = {
 };
 
 // Function to get the correct display name
-const getTechDisplayName = (tech) => {
+const getTechDisplayName = (tech: string): string => {
   return techNameMap[tech] || tech.charAt(0).toUpperCase() + tech.slice(1);
 };
 ---
@@ -49,37 +56,71 @@ const getTechDisplayName = (tech) => {
         Technologies and tools I use to bring ideas to life
       </p>
 
-      <!-- Continuous Scrolling Tech Stack -->
-      <div class="relative overflow-x-hidden py-8">
-        <div
-          class="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-gray-50 dark:from-gray-800 to-transparent z-20"
-        >
-        </div>
-        <div
-          class="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-gray-50 dark:from-gray-800 to-transparent z-20"
-        >
-        </div>
+      <!-- Multi-Row Continuous Scrolling Tech Stack -->
+      <div class="relative py-8 space-y-6">
+        <!-- Gradient overlays -->
+        <div class="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-gray-50 dark:from-gray-800 to-transparent z-20"></div>
+        <div class="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-gray-50 dark:from-gray-800 to-transparent z-20"></div>
 
-        <div class="flex animate-scroll hover:animate-paused gap-12 md:gap-20 w-max">
-          {
-            [...technologies, ...technologies, ...technologies].map((tech) => (
-              <div class="flex items-center gap-3 group transition-all duration-300">
-                <div class="w-10 h-10 rounded-xl bg-white dark:bg-gray-700 flex items-center justify-center shadow-lg border border-gray-200 dark:border-gray-600 transition-transform group-hover:scale-110">
-                  <img
-                    src={`/svg/${tech}.svg`}
-                    alt={tech}
-                    class="h-6 w-6 object-contain opacity-80 group-hover:opacity-100 transition-opacity"
-                    width="24"
-                    height="24"
-                    loading="lazy"
-                  />
-                </div>
-                <span class="text-lg font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">
-                  {getTechDisplayName(tech)}
-                </span>
+        {carouselRows.map((row, rowIndex) => (
+          <div class="relative overflow-x-hidden">
+            <div class={`flex gap-8 md:gap-12 w-max ${
+              rowIndex % 2 === 0 
+                ? 'animate-scroll-right hover:animate-paused' 
+                : 'animate-scroll-left hover:animate-paused'
+            }`}>
+              {
+                [...row, ...row, ...row, ...row].map((tech, index) => (
+                  <div class="flex items-center gap-3 group transition-all duration-300 px-2">
+                    <div class="w-12 h-12 rounded-xl bg-white dark:bg-gray-700 flex items-center justify-center shadow-lg border border-gray-200 dark:border-gray-600 transition-transform group-hover:scale-110">
+                      <img
+                        src={`/svg/${tech}.svg`}
+                        alt={tech}
+                        class="h-8 w-8 object-contain opacity-80 group-hover:opacity-100 transition-opacity"
+                        width="32"
+                        height="32"
+                        loading="lazy"
+                      />
+                    </div>
+                    <span class="text-lg font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">
+                      {getTechDisplayName(tech)}
+                    </span>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Technology Categories Overview -->
+      <div class="mt-16 bg-white dark:bg-gray-700 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-600">
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-6 text-center">
+          Technology Categories
+        </h3>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          {Object.entries(techStackGroups).map(([category, techs]) => (
+            <div class="text-center">
+              <h4 class="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-3">
+                {category}
+              </h4>
+              <div class="space-y-2">
+                {techs.map((tech) => (
+                  <div class="flex items-center justify-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+                    <img
+                      src={`/svg/${tech}.svg`}
+                      alt={tech}
+                      class="h-4 w-4 object-contain"
+                      width="16"
+                      height="16"
+                      loading="lazy"
+                    />
+                    <span>{getTechDisplayName(tech)}</span>
+                  </div>
+                ))}
               </div>
-            ))
-          }
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -87,17 +128,30 @@ const getTechDisplayName = (tech) => {
 </section>
 
 <style is:global>
-  @keyframes scroll {
+  @keyframes scroll-right {
     from {
       transform: translateX(0);
     }
     to {
-      transform: translateX(-33.333%);
+      transform: translateX(-25%);
     }
   }
 
-  .animate-scroll {
-    animation: scroll 60s linear infinite;
+  @keyframes scroll-left {
+    from {
+      transform: translateX(-25%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  .animate-scroll-right {
+    animation: scroll-right 50s linear infinite;
+  }
+
+  .animate-scroll-left {
+    animation: scroll-left 45s linear infinite;
   }
 
   .animate-paused {
@@ -105,13 +159,17 @@ const getTechDisplayName = (tech) => {
   }
 
   @media (min-width: 768px) {
-    .animate-scroll {
-      animation-duration: 50s;
+    .animate-scroll-right {
+      animation-duration: 40s;
+    }
+    .animate-scroll-left {
+      animation-duration: 35s;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .animate-scroll {
+    .animate-scroll-right,
+    .animate-scroll-left {
       animation: none;
     }
   }
